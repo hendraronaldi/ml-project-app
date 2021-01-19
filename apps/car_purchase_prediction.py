@@ -20,28 +20,28 @@ class CarPurchasePrediction:
 		self.countries = sorted(self.dataset.Country.unique())
 
 	def load_model(self):
-		if not path.exists('apps/model.h5'):
+		if not path.exists('apps/cpp_model.h5'):
 			m = requests.get(f'https://github.com/hendraronaldi/{self.repo}/blob/master/model.h5?raw=true')
-			open('apps/model.h5', 'wb').write(m.content)
-		self.model =  tf.keras.models.load_model('apps/model.h5')
+			open('apps/cpp_model.h5', 'wb').write(m.content)
+		self.model =  tf.keras.models.load_model('apps/cpp_model.h5')
 
 	def load_scaler(self):
-		if not path.exists('apps/scaler_x.pkl'):
+		if not path.exists('apps/cpp_scaler_x.pkl'):
 			scx = requests.get(f'https://github.com/hendraronaldi/{self.repo}/blob/master/scaler_x.pkl?raw=true')
-			open('apps/scaler_x.pkl', 'wb').write(scx.content)
+			open('apps/cpp_scaler_x.pkl', 'wb').write(scx.content)
 
-		if not path.exists('apps/scaler_y.pkl'):
+		if not path.exists('apps/cpp_scaler_y.pkl'):
 			scy = requests.get(f'https://github.com/hendraronaldi/{self.repo}/blob/master/scaler_y.pkl?raw=true')
-			open('apps/scaler_y.pkl', 'wb').write(scy.content)
+			open('apps/cpp_scaler_y.pkl', 'wb').write(scy.content)
 
-		self.scaler_x = joblib.load('apps/scaler_x.pkl')
-		self.scaler_y = joblib.load('apps/scaler_y.pkl')
+		self.scaler_x = joblib.load('apps/cpp_scaler_x.pkl')
+		self.scaler_y = joblib.load('apps/cpp_scaler_y.pkl')
 
 	def load_encoder(self):
-		if not path.exists('apps/encoder.pkl'):
+		if not path.exists('apps/cpp_encoder.pkl'):
 			enc = requests.get(f'https://github.com/hendraronaldi/{self.repo}/blob/master/encoder.pkl?raw=true')
-			open('apps/encoder.pkl', 'wb').write(enc.content)
-		self.encoder = joblib.load('apps/encoder.pkl')
+			open('apps/cpp_encoder.pkl', 'wb').write(enc.content)
+		self.encoder = joblib.load('apps/cpp_encoder.pkl')
 
 	def input_features(self):
 		st.subheader('Input Parameters')
