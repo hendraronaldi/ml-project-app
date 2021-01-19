@@ -4,6 +4,7 @@ import numpy as np
 from apps.car_purchase_prediction import CarPurchasePrediction
 from apps.simple_face_mask_detection import FaceMaskDetection
 from apps.spam_detection import SpamDetection
+from apps.sign_traffic_classifier import SignTrafficClassifier
 
 # function to select which app
 def load_app(app_name):
@@ -15,7 +16,7 @@ def load_app(app_name):
 	elif app_name == 'spam detection':
 		app = SpamDetection(apps[app_name])
 	elif app_name == 'sign traffic classifier':
-		pass
+		app = SignTrafficClassifier(apps[app_name])
 	return app
 
 # app list
