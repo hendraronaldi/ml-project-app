@@ -24,7 +24,8 @@ apps = {
 	'car purchase prediction': 'car-purchase-prediction',
 	'face mask detection': 'simple-face-mask-detection',
 	'sign traffic classifier': 'sign-traffic-classifier',
-	'spam detection': 'spam-detection'
+	'spam detection': 'spam-detection',
+	'wushu pose similarity': 'wushu-pose-similarity'
 }
 
 # sidebar
@@ -44,8 +45,13 @@ if app_name == None or app_name == '':
 else:
 	st.title(app_name.title())
 
-try:
-	app = load_app(app_name)
-	app.predict()
-except:
-	st.write('Project error, please select another project from sidebar')
+if app_name == 'wushu pose similarity':
+	st.write("""
+		Please use this [link](https://wushu-pose-estimation.herokuapp.com/poseSimilarity) to open the app, thanks
+	""")
+else:
+	try:
+		app = load_app(app_name)
+		app.predict()
+	except:
+		st.write('Project error, please select another project from sidebar')
