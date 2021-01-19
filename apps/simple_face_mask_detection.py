@@ -12,7 +12,6 @@ from os import path
 
 class FaceMaskDetection:
 	def __init__(self, repo):
-		print(repo)
 		self.repo = repo
 		self.load_model()
 		self.load_scaler()
