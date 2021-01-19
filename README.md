@@ -3,7 +3,7 @@ This app includes list of machine learning projects I've built
 
 ***
 
-## Simple Mask Detection App ##
+## Simple Mask Detection ##
 
 Classifying whether people wearing face mask or not.
 
@@ -11,7 +11,7 @@ Notebook: [Link](https://github.com/hendraronaldi/DPHI_data_science_challenges/b
 
 ***
 
-## Car Purchase Prediction App ##
+## Car Purchase Prediction ##
 
 Predict car purchase amount using ANN
 
@@ -19,7 +19,7 @@ Notebook: [Link](https://github.com/hendraronaldi/machine_learning_projects/blob
 
 ***
 
-## Sign Traffic Classifier App ##
+## Sign Traffic Classifier ##
 
 Classifying image sign traffic using LeNet neural network architecture
 
@@ -27,7 +27,7 @@ Notebook: [Link](https://github.com/hendraronaldi/DPHI_data_science_challenges/b
 
 ***
 
-## Spam Detection App ##
+## Spam Detection ##
 
 Detect a message is a spam or not using RNN
 
