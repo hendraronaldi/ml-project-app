@@ -4,7 +4,6 @@ import tensorflow as tf
 import numpy as np
 from apps.car_purchase_prediction import CarPurchasePrediction
 
-# function to load supporting files, e.g. model, scaler, encoder, etc.
 # function to select which app
 def load_app(app_name):
 	app = None
@@ -12,7 +11,7 @@ def load_app(app_name):
 		app = CarPurchasePrediction(apps[app_name])
 	return app
 
-# input parameters
+# app list
 apps = {
 	'car purchase prediction': 'car-purchase-prediction',
 	'face mask detection': 'simple-face-mask-detection',
