@@ -1,13 +1,7 @@
 # import libraries
-import cv2
 import streamlit as st
 import tensorflow as tf
-from tensorflow.keras.models import Model
-from tensorflow.keras.layers import Input, Flatten, Dense
-from tensorflow.keras.applications.vgg16 import VGG16 as PretrainedModel, preprocess_input
-from tensorflow.keras.preprocessing import image
 import numpy as np
-import joblib
 from apps.car_purchase_prediction import CarPurchasePrediction
 
 # function to load supporting files, e.g. model, scaler, encoder, etc.
