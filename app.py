@@ -39,4 +39,4 @@ try:
 	app = load_app(app_name)
 	app.predict()
 except:
-	st.write('Please select a project from sidebar')
+	st.write('Project error, please select another project from sidebar')
