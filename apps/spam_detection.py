@@ -44,10 +44,9 @@ class SpamDetection:
 
 	def show(self, predictions, threshold):
 		st.header('Prediction')
-		predictions = make_prediction(text)
 		if predictions < threshold:
-			st.subheader('Not a spam')
+			st.write('Not a spam')
 		else:
-			st.subheader('Spam detected!!')
+			st.write('Spam detected!!')
 		st.header('Score')
-		st.subheader(predictions)
+		st.write(predictions)
