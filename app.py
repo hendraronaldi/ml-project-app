@@ -2,12 +2,19 @@
 import streamlit as st
 import numpy as np
 from apps.car_purchase_prediction import CarPurchasePrediction
+from apps.simple_face_mask_detection import FaceMaskDetection
 
 # function to select which app
 def load_app(app_name):
 	app = None
 	if app_name == 'car purchase prediction':
 		app = CarPurchasePrediction(apps[app_name])
+	elif app_name == 'face mask detection':
+		app = FaceMaskDetection(apps[app_name])
+	elif app_name == 'spam detection':
+		pass
+	elif app_name == 'sign traffic classifier':
+		pass
 	return app
 
 # app list
