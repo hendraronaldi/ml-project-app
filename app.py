@@ -8,9 +8,16 @@ from tensorflow.keras.applications.vgg16 import VGG16 as PretrainedModel, prepro
 from tensorflow.keras.preprocessing import image
 import numpy as np
 import joblib
+from apps.car_purchase_prediction import CarPurchasePrediction
 
 # function to load supporting files, e.g. model, scaler, encoder, etc.
 # function to select which app
+def load_app(app_name):
+	app = None
+	if app_name == 'car purchase prediction':
+		app = CarPurchasePrediction(apps[app_name])
+	return app
+
 # input parameters
 apps = {
 	'car purchase prediction': 'car-purchase-prediction',
@@ -36,3 +43,8 @@ if app_name == None or app_name == '':
 else:
 	st.title(app_name.title())
 
+try:
+	app = load_app(app_name)
+	app.predict()
+except:
+	st.write('Please select a project from sidebar')
