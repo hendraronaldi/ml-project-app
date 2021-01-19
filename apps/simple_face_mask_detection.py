@@ -12,6 +12,7 @@ from os import path
 
 class FaceMaskDetection:
 	def __init__(self, repo):
+		print(repo)
 		self.repo = repo
 		self.load_model()
 		self.load_scaler()
@@ -31,9 +32,9 @@ class FaceMaskDetection:
 
 	def load_encoder(self):
 		ptm = PretrainedModel(
-		    include_top=False,
-		    weights='imagenet',
-		    input_shape=[200, 200] + [3]
+			include_top=False,
+			weights='imagenet',
+			input_shape=[200, 200] + [3]
 		)
 		dx = Flatten()(ptm.output)
 		dm = Model(inputs=ptm.input, outputs=dx)
@@ -65,18 +66,24 @@ class FaceMaskDetection:
 		img = image.img_to_array(frame)
 		img = img.reshape(1, img.shape[0], img.shape[1], img.shape[2])
 		img = preprocess_input(img)
-
-		feat_test = self.encoder.predict(img)
-		feat_test = self.scaler.transform(feat_test)
-		predictions = 1-self.model.predict(feat_test)[0][0]
-		self.show(predictions, threshold)
+		
+		try:
+			feat_test = self.encoder.predict(img)
+			feat_test = self.scaler.transform(feat_test)
+			predictions = 1-self.model.predict(feat_test)[0][0]
+			self.show(predictions, threshold)
+		except:
+			self.show(None, None)
 
 	def show(self, predictions, threshold):
-		st.header('Face Mask Prediction')
-		if predictions < threshold:
-			st.subheader('Not using face mask!!!')
+		if predictions != None and threshold != None:
+			st.header('Face Mask Prediction')
+			if predictions < threshold:
+				st.subheader('Not using face mask!!!')
+			else:
+				st.subheader('Using face mask, good')
+			st.write("***")
+			st.header('Prediction Score')
+			st.subheader(predictions)
 		else:
-			st.subheader('Using face mask, good')
-		st.write("***")
-		st.header('Prediction Score')
-		st.subheader(predictions)
+			st.subheader('Please upload an image')
