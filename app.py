@@ -1,6 +1,5 @@
 # import libraries
 import streamlit as st
-import tensorflow as tf
 import numpy as np
 from apps.car_purchase_prediction import CarPurchasePrediction
 
