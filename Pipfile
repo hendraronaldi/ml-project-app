@@ -5,8 +5,8 @@ name = "pypi"
 
 [packages]
 scikit-learn = "==0.22.2.post1"
-tensorflow = "~=2.4.0"
-opencv-python = "*"
+opencv-python-headless = "*"
+tensorflow-cpu = "==2.4.0"
 
 [dev-packages]
 
