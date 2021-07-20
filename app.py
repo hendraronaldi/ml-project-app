@@ -3,6 +3,7 @@ import streamlit as st
 import numpy as np
 from apps.car_purchase_prediction import CarPurchasePrediction
 from apps.simple_face_mask_detection import face_mask_detection
+from apps.hotel_cancelation_prediction import HotelCancelation
 from apps.spam_detection import SpamDetection
 from apps.sign_traffic_classifier import SignTrafficClassifier
 
@@ -13,6 +14,8 @@ def load_app(app_name):
 		app = CarPurchasePrediction(apps[app_name])
 	elif app_name == 'face mask detection':
 		face_mask_detection()
+	elif app_name == 'hotel cancelation prediction':
+		app =  HotelCancelation(apps[app_name])
 	elif app_name == 'spam detection':
 		app = SpamDetection(apps[app_name])
 	elif app_name == 'sign traffic classifier':
@@ -23,6 +26,7 @@ def load_app(app_name):
 apps = {
 	'car purchase prediction': 'car-purchase-prediction',
 	'face mask detection': 'simple-face-mask-detection',
+	'hotel cancelation prediction': 'hotel-demand-booking',
 	'sign traffic classifier': 'sign-traffic-classifier',
 	'spam detection': 'spam-detection',
 	'wushu pose similarity': 'wushu-pose-similarity'
@@ -52,11 +56,10 @@ if app_name == 'wushu pose similarity':
 else:
 	try:
 		if app_name == 'face mask detection':
-			app = None
 			load_app(app_name)
 		else:
 			app = load_app(app_name)
 			app.predict()
 	except Exception as e:
-		print(e)
+		print(f'error: {e}')
 		st.write('Project error, please select another project from sidebar')
