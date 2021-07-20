@@ -7,6 +7,8 @@ name = "pypi"
 scikit-learn = "==0.22.2.post1"
 opencv-python-headless = "*"
 tensorflow-cpu = "==2.4.0"
+streamlit-webrtc = "*"
+av = "*"
 
 [dev-packages]
 
