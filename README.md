@@ -19,6 +19,14 @@ Notebook: [Link](https://github.com/hendraronaldi/machine_learning_projects/blob
 
 ***
 
+## Hotel Cancelation Prediction ##
+
+Classifying whether people will do booking cancelation or not.
+
+Notebook: [Link](https://github.com/hendraronaldi/machine_learning_projects/blob/main/HotelCancelation.ipynb)
+
+***
+
 ## Sign Traffic Classifier ##
 
 Classifying image sign traffic using LeNet neural network architecture
