@@ -89,6 +89,6 @@ def face_mask_detection():
 				pred_text.subheader(pred)
 				if pred != None:
 					if pred < 0.5:
-						mask_text.warning('Not using face mask!!!')
+						mask_text.error('Not using face mask!!!')
 					else:
 						mask_text.success('Using face mask, Good Job')
