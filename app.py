@@ -28,8 +28,7 @@ apps = {
 	'face mask detection': 'simple-face-mask-detection',
 	'hotel cancelation prediction': 'hotel-demand-booking',
 	'sign traffic classifier': 'sign-traffic-classifier',
-	'spam detection': 'spam-detection',
-	'wushu pose similarity': 'wushu-pose-similarity'
+	'spam detection': 'spam-detection'
 }
 
 # sidebar
@@ -49,11 +48,6 @@ if app_name == None or app_name == '':
 else:
 	st.title(app_name.title())
 
-if app_name == 'wushu pose similarity':
-	st.write("""
-		Please use this [link](https://wushu-pose-estimation.herokuapp.com/poseSimilarity) to open the app, thanks
-	""")
-else:
 	try:
 		if app_name == 'face mask detection':
 			load_app(app_name)
