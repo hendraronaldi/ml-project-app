@@ -31,7 +31,7 @@ class SpamDetection:
 
 	def input_features(self):
 		st.subheader('Input Parameters')
-		threshold = st.slider('Threshold', 0.0, 1.0, 0.5)
+		threshold = 0.5
 		text = st.text_area('Text to analyze', "", height=5)
 		return text, threshold
 
