@@ -29,6 +29,7 @@ def face_mask_detection():
 		predictions: float
 		def __init__(self):
 			self.predictions = None
+			self.frame = None
 			self.load_model()
 			self.load_scaler()
 			self.load_encoder()
@@ -56,6 +57,7 @@ def face_mask_detection():
 			self.encoder = dm
 
 		def recv(self, frame: av.VideoFrame) -> av.VideoFrame:
+			self.frame = frame
 			try:
 				frame = frame.to_ndarray(format="bgr24")
 				frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
@@ -78,17 +80,23 @@ def face_mask_detection():
         async_processing=True,
     )
 
+	capture_frame = None
+
 	if webrtc_ctx.state.playing:
+		if st.button("Click to Make Prediction") and webrtc_ctx.video_processor:
+			capture_frame = webrtc_ctx.video_processor.frame
+
 		st.header('Face Mask Prediction')
 		mask_text = st.empty()
 		st.header('Prediction Score')
 		pred_text = st.empty()
-		while True:
-			if webrtc_ctx.video_processor:
-				pred = webrtc_ctx.video_processor.predictions
-				pred_text.subheader(pred)
-				if pred != None:
-					if pred < 0.5:
-						mask_text.error('Not using face mask!!!')
-					else:
-						mask_text.success('Using face mask, Good Job')
+
+		if capture_frame is not None:
+			st.image(capture_frame.to_ndarray(format="rgb24"))
+			pred = webrtc_ctx.video_processor.predictions
+			pred_text.subheader(pred)
+			if pred != None:
+				if pred < 0.5:
+					mask_text.error('Not using face mask!!!')
+				else:
+					mask_text.success('Using face mask, Good Job')
