@@ -19,9 +19,9 @@ from streamlit_webrtc import (
 )
 from twilio.rest import Client
 
-secrets = toml.load('.toml')['secrets']
-sid = secrets['TURN_SID']
-auth = secrets['TURN_AUTH']
+# secrets = toml.load('.toml')['secrets']
+sid = st.secrets['secrets']['TURN_SID']
+auth = st.secrets['secrets']['TURN_AUTH']
 
 client = Client(sid, auth)
 token = client.tokens.create()
