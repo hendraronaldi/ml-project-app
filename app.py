@@ -57,3 +57,4 @@ else:
 	except Exception as e:
 		print(f'error: {e}')
 		st.write('Project error, please select another project from sidebar')
+		st.write(f'error: {e}')
