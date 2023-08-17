@@ -65,11 +65,6 @@ def face_mask_detection():
 			dm = Model(inputs=ptm.input, outputs=dx)
 			self.encoder = dm
 
-			# if not path.exists('apps/fmd_encoder.h5'):
-			# 	dm = requests.get(f'https://github.com/hendraronaldi/simple-face-mask-detection/blob/main/features.h5?raw=true')
-			# 	open('apps/fmd_encoder.h5', 'wb').write(dm.content)
-			# self.encoder =  tf.keras.models.load_model('apps/fmd_encoder.h5')
-
 		def recv(self, frame: av.VideoFrame) -> av.VideoFrame:
 			self.frame = frame
 			try:
