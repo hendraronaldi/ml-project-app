@@ -41,9 +41,9 @@ def human_emotion_detection():
         def recv(self, frame: av.VideoFrame) -> av.VideoFrame:
             self.frame = frame
             try:
-                frame = frame.to_ndarray(format="bgr24")
-                frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+                frame = frame.to_ndarray(format="rgb24")
                 frame = cv2.resize(frame, (224, 224))
+                frame = frame / 255.0
                 im = tf.constant(frame, dtype=tf.float32)
                 im = tf.expand_dims(im, axis=0)
                 self.predictions = ["angry", "happy", "nothing", "sad"][tf.argmax(self.model(im), axis=-1).numpy()[0]]
