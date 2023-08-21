@@ -3,6 +3,7 @@ import streamlit as st
 import numpy as np
 from apps.car_purchase_prediction import CarPurchasePrediction
 from apps.simple_face_mask_detection import face_mask_detection
+from apps.human_emotions_detection import human_emotion_detection
 from apps.hotel_cancelation_prediction import HotelCancelation
 from apps.spam_detection import SpamDetection
 from apps.sign_traffic_classifier import SignTrafficClassifier
@@ -14,6 +15,8 @@ def load_app(app_name):
 		app = CarPurchasePrediction(apps[app_name])
 	elif app_name == 'face mask detection':
 		face_mask_detection()
+	elif app_name == 'human emotion detection':
+		human_emotion_detection()
 	elif app_name == 'hotel cancelation prediction':
 		app =  HotelCancelation(apps[app_name])
 	elif app_name == 'spam detection':
@@ -25,9 +28,10 @@ def load_app(app_name):
 # app list
 apps = {
 	'car purchase prediction': 'car-purchase-prediction',
-	'face mask detection': 'simple-face-mask-detection',
 	'hotel cancelation prediction': 'hotel-demand-booking',
+	'face mask detection': 'simple-face-mask-detection',
 	'sign traffic classifier': 'sign-traffic-classifier',
+	'human emotion detection': 'human-emotion-detection',
 	'spam detection': 'spam-detection'
 }
 
@@ -49,7 +53,7 @@ else:
 	st.title(app_name.title())
 
 	try:
-		if app_name == 'face mask detection':
+		if app_name == 'face mask detection' or app_name == 'human emotion detection':
 			load_app(app_name)
 		else:
 			app = load_app(app_name)
