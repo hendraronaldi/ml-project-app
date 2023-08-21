@@ -11,17 +11,17 @@ from streamlit_webrtc import (
 )
 from twilio.rest import Client
 
-# sid = st.secrets['secrets']['TURN_SID']
-# auth = st.secrets['secrets']['TURN_AUTH']
-#
-# client = Client(sid, auth)
-# token = client.tokens.create()
+sid = st.secrets['secrets']['TURN_SID']
+auth = st.secrets['secrets']['TURN_AUTH']
+
+client = Client(sid, auth)
+token = client.tokens.create()
 
 
 def human_emotion_detection():
     WEBRTC_CLIENT_SETTINGS = ClientSettings(
-        # rtc_configuration={"iceServers": token.ice_servers},
-        rtc_configuration={"iceServers": [{"urls": "stun:stun.l.google.com:19302"}]},
+        rtc_configuration={"iceServers": token.ice_servers},
+        # rtc_configuration={"iceServers": [{"urls": "stun:stun.l.google.com:19302"}]},
         media_stream_constraints={
             "video": True,
         },
@@ -34,8 +34,8 @@ def human_emotion_detection():
             self.load_model()
 
         def load_model(self):
-            if not path.exists('apps/fmd_model.h5'):
-                raise Exception("Error message")
+            if not path.exists('apps/hed_model.h5'):
+                raise Exception("No available model exists, please choose another project.")
             self.model =  tf.keras.models.load_model('apps/hed_model.h5')
 
         def recv(self, frame: av.VideoFrame) -> av.VideoFrame:
