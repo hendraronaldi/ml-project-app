@@ -9,7 +9,6 @@ from tensorflow.keras.preprocessing import image
 import numpy as np
 import requests
 import joblib
-import toml
 from os import path
 from streamlit_webrtc import (
     ClientSettings,
@@ -19,7 +18,6 @@ from streamlit_webrtc import (
 )
 from twilio.rest import Client
 
-# secrets = toml.load('.toml')['secrets']
 sid = st.secrets['secrets']['TURN_SID']
 auth = st.secrets['secrets']['TURN_AUTH']
 
@@ -29,7 +27,8 @@ token = client.tokens.create()
 def face_mask_detection():
 	WEBRTC_CLIENT_SETTINGS = ClientSettings(
 		rtc_configuration={"iceServers": token.ice_servers},
-		media_stream_constraints={
+		# rtc_configuration={"iceServers": [{"urls": "stun:stun.l.google.com:19302"}]},
+        media_stream_constraints={
 			"video": True,
 		},
 	)
