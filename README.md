@@ -43,8 +43,8 @@ Notebook: [Link](https://github.com/hendraronaldi/tensorflow_projects/blob/main/
 
 ***
 
-## Wushu Pose Similarity ##
+## Human Emotions Detection ##
 
-Live pose similarity using Posenet to extract body keypoints of model's image pose and user's pose then compare the similarity between them based on weighted cosine similarity and weighted euclidean distances.
+Classifying human emotions from image as angry, happy, sad, or nothing
 
-App Repo: [Link](https://github.com/hendraronaldi/wushu-pose-estimation)
+Notebook: [Link](https://github.com/hendraronaldi/machine_learning_projects/blob/main/Human_Emotions_Detection.ipynb)
