@@ -37,7 +37,7 @@ apps = {
 
 # sidebar
 st.sidebar.title('Hendra Ronaldi')
-st.sidebar.write('Machine learning & Data science enthusiast')
+st.sidebar.write('Machine learning enthusiast, Software Engineer')
 st.sidebar.write("""
 	[Github](https://github.com/hendraronaldi)
 	[Linkedin](https://www.linkedin.com/in/hendra-ronaldi-4a7a1b121/)
