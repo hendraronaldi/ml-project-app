@@ -46,6 +46,13 @@ class CarPurchasePrediction:
             open('apps/cpp_encoder.pkl', 'wb').write(enc.content)
         self.encoder = joblib.load('apps/cpp_encoder.pkl')
 
+    def info(self):
+        st.write('Predicts the car purchase amount based on feature values')
+        st.write("""
+            This is part of project from Udemy course [Machine Learning Practical Workout 8 Real-World Projects](https://www.udemy.com/course/deep-learning-machine-learning-practical/)
+            Notebook can be found [here](https://github.com/hendraronaldi/machine_learning_projects/blob/main/Courses/Udemy%20Machine%20Learning%20Practical%20Workout%20%208%20Real-World%20Projects/MLProject01_CarPurchasePrediction_ANN.ipynb)
+        """)
+
     def input_features(self):
         st.subheader('Input Parameters')
         country = st.selectbox('Country', self.countries)
@@ -65,6 +72,7 @@ class CarPurchasePrediction:
         })
 
     def predict(self):
+        self.info()
         pred_df = self.input_features()
         pred_df['Country'] = self.encoder.transform(pred_df['Country'])
         X = self.scaler_x.transform(pred_df)
