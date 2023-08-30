@@ -27,6 +27,10 @@ def human_emotion_detection():
         },
     )
 
+    st.write('Classify human emotion angry, happy, nothing, or sad from face image')
+    st.write("""This is an application from Udemy course [Deep Learning Masterclass with TensorFlow 2 Over 20 Projects](https://www.udemy.com/course/deep-learning-masterclass-with-tensorflow-2-over-15-projects/)""")
+    st.write("""Notebook can be found [here](https://github.com/hendraronaldi/machine_learning_projects/blob/main/Courses/Udemy%20Deep%20Learning%20Masterclass%20with%20TensorFlow%202%20Over%2020%20Projects/Human_Emotions_Detection.ipynb)""")
+
     class HumanEmotionDetection(VideoProcessorBase):
         def __init__(self):
             self.predictions = None

@@ -26,6 +26,13 @@ class HotelCancelation:
             open('apps/scaler_imp15.pkl', 'wb').write(scl.content)
         self.scaler = joblib.load('apps/scaler_imp15.pkl')
 
+    def info(self):
+        st.write('Classify whether the hotel booking will be canceled or not')
+        st.write('This is an application from my final project group Shift Academy Batch 9 Data Science Bootcamp')
+        st.write("""The presentation [here](https://github.com/hendraronaldi/machine_learning_projects/blob/main/Shift%20Academy%20DS%20Bootcamp%20Batch%209/Shift%20Academy%20DS%20Bootcamp%20Batch%209%20Final%20Project%20Kelompok%203.pptx)""")
+        st.write("""Dataset](https://www.kaggle.com/datasets/jessemostipak/hotel-booking-demand)""")
+        st.write("""Notebook can be found [here](https://github.com/hendraronaldi/machine_learning_projects/blob/main/Shift%20Academy%20DS%20Bootcamp%20Batch%209/Shift%20Academy%20DS%20Bootcamp%20Batch%209%20Final%20Project%20Kelompok%203.ipynb)""")
+
     def input_features(self):
         country = st.selectbox('Country', ('PRT', 'Other'))
         agent = st.selectbox('Agent', ('9', '240', 'Other'))
@@ -53,6 +60,7 @@ class HotelCancelation:
         })
 
     def predict(self):
+        self.info()
         pred_df = self.scaler.transform((self.input_features()))
         self.show(self.model.predict(pred_df))
 

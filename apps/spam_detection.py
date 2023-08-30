@@ -29,6 +29,12 @@ class SpamDetection:
 		with open('apps/sd_tokenizer.pickle', 'rb') as handle:
 			self.tokenizer = pickle.load(handle)
 
+	def info(self):
+		st.write('Classify the text as spam or not')
+		st.write("""
+			Notebook can be found [here](https://github.com/hendraronaldi/machine_learning_projects/blob/main/Courses/Udemy%20Tensorflow/TF2.0%20NLP%20Spam%20Detection%20RNN%20and%20CNN.ipynb)
+		""")
+
 	def input_features(self):
 		st.subheader('Input Parameters')
 		threshold = 0.5
@@ -36,6 +42,7 @@ class SpamDetection:
 		return text, threshold
 
 	def predict(self):
+		self.info()
 		text, threshold = self.input_features()
 		text_tok = self.tokenizer.texts_to_sequences([text])
 		text_pad = pad_sequences(text_tok, maxlen=189) #189 is maxlen in training

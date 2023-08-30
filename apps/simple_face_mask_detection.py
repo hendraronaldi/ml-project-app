@@ -33,6 +33,10 @@ def face_mask_detection():
 		},
 	)
 
+	st.write('Detects a person using face mask or not from image')
+	st.write("""This is an application from challenge [here](https://aiplanet.com/challenges/34/data-sprint-6-face-mask-detection-34/overview/about) including the dataset""")
+	st.write("""Notebook can be found [here](https://github.com/hendraronaldi/machine_learning_projects/blob/main/Competitions/DPHI%20Machine%20Learning%20Challenges/DPHI%20Face%20Mask%20Detection.ipynb)""")
+
 	class FaceMaskDetection(VideoProcessorBase):
 		predictions: float
 		def __init__(self):

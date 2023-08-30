@@ -72,6 +72,11 @@ class SignTrafficClassifier:
 		pimg = (pimg - 128) / 128
 		return pimg
 
+	def info(self):
+		st.write('Classify sign traffic from image')
+		st.write("""This is part of project from Udemy course [Machine Learning Practical Workout 8 Real-World Projects](https://www.udemy.com/course/deep-learning-machine-learning-practical/)""")
+		st.write("""Notebook can be found [here](https://github.com/hendraronaldi/machine_learning_projects/blob/main/Courses/Udemy%20Machine%20Learning%20Practical%20Workout%20%208%20Real-World%20Projects/MLProject%20LeNet%20Traffic%20Sign%20Classifier.ipynb)""")
+
 	def input_features(self):
 		st.subheader('Input Parameters')
 		uploaded_img = st.file_uploader("Upload Image")
@@ -90,6 +95,7 @@ class SignTrafficClassifier:
 		return frame
 
 	def predict(self):
+		self.info()
 		frame = self.input_features()
 		frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 		frame = cv2.resize(frame, (32, 32))
