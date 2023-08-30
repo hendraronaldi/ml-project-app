@@ -23,7 +23,7 @@ Notebook: [Link](https://github.com/hendraronaldi/machine_learning_projects/blob
 
 Classifying whether people will do booking cancelation or not.
 
-Notebook: [Link](https://github.com/hendraronaldi/machine_learning_projects/blob/main/Shift%20Academy%20DS%20Bootcamp%20Batch%209/HotelCancelation.ipynb)
+Notebook: [Link](https://github.com/hendraronaldi/machine_learning_projects/blob/main/Shift%20Academy%20DS%20Bootcamp%20Batch%209/Shift%20Academy%20DS%20Bootcamp%20Batch%209%20Final%20Project%20Kelompok%203.ipynb)
 
 ***
 
@@ -47,4 +47,4 @@ Notebook: [Link](https://github.com/hendraronaldi/machine_learning_projects/blob
 
 Classifying human emotions from image as angry, happy, sad, or nothing
 
-Notebook: [Link](https://github.com/hendraronaldi/machine_learning_projects/blob/main/Human_Emotions_Detection.ipynb)
+Notebook: [Link](https://github.com/hendraronaldi/machine_learning_projects/blob/main/Courses/Udemy%20Deep%20Learning%20Masterclass%20with%20TensorFlow%202%20Over%2020%20Projects/Human_Emotions_Detection.ipynb)
